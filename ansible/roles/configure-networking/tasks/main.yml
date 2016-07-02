@@ -5,7 +5,7 @@
 # Install networking packages #
 ###############################
 - name: Install network package dependencies
-  apt: name="{{ item }}" state=latest
+  apt: name="{{ item }}" state=latest update_cache=yes
   with_items:
     - bridge-utils
     - debootstrap

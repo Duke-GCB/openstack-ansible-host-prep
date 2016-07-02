@@ -6,7 +6,7 @@
 #########################
 - name: generate root password
   local_action: shell pwgen {{ TARGET_HOST_PASSWORDS.password_length }} 1
-  with_items: groups['target-hosts']
+  with_items: "{{groups['target-hosts']}}"
   when: GENERATE_ROOT_PASSWORDS is defined
   run_once: true
   register: root_pass
@@ -23,7 +23,7 @@
 - name: check to see if passwords have already been generated
   local_action: shell grep {{ item | upper }} {{ TARGET_HOST_PASSWORDS.file }}
   register: passwd_file
-  with_items: groups['target-hosts']
+  with_items: "{{groups['target-hosts']}}"
   when: GENERATE_ROOT_PASSWORDS is defined
   failed_when: False
   run_once: true
@@ -40,7 +40,7 @@
 
 - name: output password to file
   local_action: 'lineinfile dest="{{ TARGET_HOST_PASSWORDS.file }}" regexp="^{{ item.item | upper }}(.*)" line="{{ item.item | upper }}: {{ item.stdout }}"'
-  with_items: root_pass.results
+  with_items: "{{root_pass.results}}"
   when: GENERATE_ROOT_PASSWORDS is defined
   tags:
     - password
@@ -53,7 +53,7 @@
     - pass-change
 
 - name: encrypt generated root password
-  local_action: shell python -c "from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.encrypt('{{ pass_from_file.stdout }}')"
+  local_action: shell ~/ansible2.1/bin/python -c "from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.encrypt('{{ pass_from_file.stdout }}')"
   when: GENERATE_ROOT_PASSWORDS is defined or SET_ROOT_PASSWORDS is defined
   register: encrypted_pass
   tags:

@@ -10,3 +10,11 @@
     mode: 644
   tags:
     - basic
+
+- name: remove ubuntu user
+  user:
+    name: ubuntu
+    state: absent
+    remove: yes
+  tags:
+    - basic
