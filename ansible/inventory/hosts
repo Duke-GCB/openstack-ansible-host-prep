@@ -6,7 +6,6 @@ bespin-infra1 ansible_host=10.16.132.75 ansible_port=22
 infrastructure-control-plane
 logging
 compute
-block-storage
 
 [infrastructure-control-plane]
 bespin-infra1 ansible_host=10.16.132.75 ansible_port=22
