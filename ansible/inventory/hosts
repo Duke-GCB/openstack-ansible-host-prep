@@ -1,32 +1,41 @@
 ---
 [deployment-host]
-infra-controle-plane-host1 ansible_host=10.109.252.84 ansible_port=22
+bespin-infra1 ansible_host=10.16.132.75 ansible_port=22
 
 [target-hosts:children]
 infrastructure-control-plane
 logging
 compute
-block-storage
 
 [infrastructure-control-plane]
-infra-controle-plane-host1 ansible_host=10.109.252.84 ansible_port=22
-infra-controle-plane-host2 ansible_host=10.109.252.85 ansible_port=22
-infra-controle-plane-host3 ansible_host=10.109.252.87 ansible_port=22
+bespin-infra1 ansible_host=10.16.132.75 ansible_port=22
+bespin-infra2 ansible_host=10.16.132.76 ansible_port=22
+bespin-infra3 ansible_host=10.16.132.77 ansible_port=22
 
 [logging]
-infra-controle-plane-host4 ansible_host=10.109.252.88 ansible_port=22
-
-[block-storage]
-infra-storage1 ansible_host=10.109.252.119 ansible_port=22
+infra-controle-plane-host4 ansible_host=10.16.132.78 ansible_port=22
 
 [compute]
-compute1 ansible_host=10.109.252.89 ansible_port=22
-compute2 ansible_host=10.109.252.90 ansible_port=22
-compute3 ansible_host=10.109.252.91 ansible_port=22
-compute4 ansible_host=10.109.252.92 ansible_port=22
-compute5 ansible_host=10.109.252.93 ansible_port=22
-compute6 ansible_host=10.109.252.94 ansible_port=22
-
+bespin-compute1 ansible_host=10.16.132.80 ansible_port=22
+bespin-compute2 ansible_host=10.16.132.81 ansible_port=22
+bespin-compute3 ansible_host=10.16.132.82 ansible_port=22
+bespin-compute4 ansible_host=10.16.132.83 ansible_port=22
+bespin-compute5 ansible_host=10.16.132.84 ansible_port=22
+bespin-compute6 ansible_host=10.16.132.85 ansible_port=22
+bespin-compute7 ansible_host=10.16.132.86 ansible_port=22
+bespin-compute8 ansible_host=10.16.132.87 ansible_port=22
+bespin-compute9 ansible_host=10.16.132.88 ansible_port=22
+bespin-compute10 ansible_host=10.16.132.89 ansible_port=22
+bespin-compute11 ansible_host=10.16.132.90 ansible_port=22
+bespin-compute12 ansible_host=10.16.132.91 ansible_port=22
+bespin-compute13 ansible_host=10.16.132.92 ansible_port=22
+bespin-compute14 ansible_host=10.16.132.93 ansible_port=22
+bespin-compute15 ansible_host=10.16.132.94 ansible_port=22
+bespin-compute16 ansible_host=10.16.132.95 ansible_port=22
+bespin-compute17 ansible_host=10.16.132.96 ansible_port=22
+bespin-compute18 ansible_host=10.16.132.97 ansible_port=22
+bespin-compute19 ansible_host=10.16.132.98 ansible_port=22
+bespin-compute20 ansible_host=10.16.132.99 ansible_port=22
 
 [mirror]
-apt-mirror ansible_host=10.109.252.118 ansible_port=22
+bespin-apt-mirror ansible_host=10.16.132.79 ansible_port=22
