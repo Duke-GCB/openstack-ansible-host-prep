@@ -15,10 +15,10 @@ SSH:
 
 TARGET_HOST_NETWORKING:
   host_network:
-    broadcast: 10.109.255.255
-    gateway: 10.109.252.1
+    broadcast: 10.16.135.255
+    gateway: 10.16.132.1
     netmask: 255.255.252.0
-    network: 10.109.252.0
+    network: 10.16.132.0
     dns_servers: 10.11.10.11
     dns_search: genome.duke.edu
     container_vlan_id: 60
@@ -33,27 +33,23 @@ TARGET_HOST_NETWORKING:
 
 TARGET_HOSTS:
   infra-controle-plane-host1:
-    ip: 10.109.252.84
+    ip: 10.16.132.75
     device1: eth0
     device2: eth1
   infra-controle-plane-host2:
-    ip: 10.109.252.85
+    ip: 10.16.132.76
     device1: eth0
     device2: eth1
   infra-controle-plane-host3:
-    ip: 10.109.252.87
+    ip: 10.16.132.77
     device1: eth0
     device2: eth1
   infra-controle-plane-host4:
-    ip: 10.109.252.88
-    device1: eth0
-    device2: eth1
-  infra-storage1:
-    ip: 10.109.252.119
+    ip: 10.16.132.78
     device1: eth0
     device2: eth1
   compute1:
-    ip: 10.109.252.89
+    ip: 10.16.132.80
     device1: eth0
     device2: eth1
 
@@ -67,6 +63,6 @@ PARTITIONING:
   - "/sbin/parted /dev/sdb -s set 1 lvm on"
   - "/sbin/parted /dev/sdb -s p"
 
-OSA_VERSION: 12.0.10
+OSA_VERSION: 14.0.5
 
 MIRROR_HOSTS: lsrc-compute-3-0.genome.duke.edu
