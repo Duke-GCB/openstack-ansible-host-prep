@@ -1,10 +1,6 @@
 ---
 
-<<<<<<< HEAD
-# Comment out this variable if you do not wish to have Ansible set root passwords
-=======
 # Comment out this variable if you do not wish to have Ansible generate and set root passwords
->>>>>>> upstream/master
 GENERATE_ROOT_PASSWORDS: True
 SET_ROOT_PASSWORDS: True
 
@@ -19,7 +15,6 @@ SSH:
 
 TARGET_HOST_NETWORKING:
   host_network:
-<<<<<<< HEAD
     broadcast: 10.16.135.255
     gateway: 10.16.132.1
     netmask: 255.255.252.0
@@ -117,50 +112,6 @@ TARGET_HOSTS:
     ip: 10.16.132.97
     device1: eno49
     device2: eno50
-=======
-    broadcast: 10.1.1.255
-    gateway: 10.1.1.1
-    netmask: 255.255.255.0
-    network: 10.1.1.0
-    # Separate DNS servers with spaces
-    dns_servers: 8.8.8.8
-    dns_search: domain.com
-    container_vlan_id: 101
-    tunnel_vlan_id: 102
-    storage_vlan_id: 103
-  container_network:
-    subnet: 172.29
-    mgmt_subnet: 236
-    tunnel_subnet: 240
-    storage_subnet: 244
-    netmask: 255.255.252.0
-
-TARGET_HOSTS:
-  infra_control_plane_host1:
-    ip: 10.1.1.10
-    device1: eth{primary}
-    device2: eth{secondary}
-  infra_control_plane_host2:
-    ip: 10.1.1.11
-    device1: eth{primary}
-    device2: eth{secondary}
-  infra_control_plane_host3:
-    ip: 10.1.1.12
-    device1: eth{primary}
-    device2: eth{secondary}
-  infra_control_plane_host4:
-    ip: 10.1.1.13
-    device1: eth{primary}
-    device2: eth{secondary}
-  infra_storage1:
-    ip: 10.1.1.14
-    device1: eth{primary}
-    device2: eth{secondary}
-  compute1:
-    ip: 10.1.1.15
-    device1: eth{primary}
-    device2: eth{secondary}
->>>>>>> upstream/master
 
 CINDER_PHYSICAL_VOLUME:
   physical_volume: sdb1
@@ -173,10 +124,6 @@ PARTITIONING:
   - "/sbin/parted /dev/sdb -s set 1 lvm on"
   - "/sbin/parted /dev/sdb -s p"
 
-<<<<<<< HEAD
-OSA_VERSION: 14.0.5
-=======
 OSA_VERSION: stable/newton
->>>>>>> upstream/master
 
 MIRROR_HOSTS: bespin-apt-mirror.dhemgt
