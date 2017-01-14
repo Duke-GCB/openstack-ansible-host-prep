@@ -14,25 +14,27 @@
     - lsof
     - tcpdump
     - vlan
+    - fping
+    - nmap
   tags: install
 
 #############################################
 # Enable required sysctl and kernel modules #
 #############################################
-- name: disable ipv6 on all nodes
-  sysctl: name="{{ item.name }}" value="{{ item.option }}" state=present reload=yes
-  with_items:
-    - { name: net.ipv6.conf.all.disable_ipv6, option: 1 }
-    - { name: net.ipv6.conf.default.disable_ipv6, option: 1 }
-    - { name: net.ipv6.conf.lo.disable_ipv6, option: 1 }
-  tags:
-    - sysctl
-    - kernel
+# - name: disable ipv6 on all nodes
+#   sysctl: name="{{ item.name }}" value="{{ item.option }}" state=present reload=yes
+#   with_items:
+#     - { name: net.ipv6.conf.all.disable_ipv6, option: 1 }
+#     - { name: net.ipv6.conf.default.disable_ipv6, option: 1 }
+#     - { name: net.ipv6.conf.lo.disable_ipv6, option: 1 }
+#   tags:
+#     - sysctl
+#     - kernel
 
 - name: load required kernel modules on boot
   lineinfile: dest=/etc/modules backup=yes regexp='{{ item.regexp }}' line='{{ item.line }}' state=present
   with_items:
-    - { regexp: '^(.*)bonding', line: 'bonding' }
+    # - { regexp: '^(.*)bonding', line: 'bonding' }
     - { regexp: '^(.*)8021q', line: '8021q' }
   tags:
     - modprobe
@@ -41,7 +43,7 @@
 - name: enable required kernel modules
   modprobe: name="{{ item }}" state=present
   with_items:
-    - bonding
+    # - bonding
     - 8021q
   tags:
     - modprobe
@@ -91,7 +93,7 @@
   template:
     src: eth.j2
     dest: "{{ network_interface_path }}/device-eth"
-  with_dict: TARGET_HOSTS
+  with_dict: '{{ TARGET_HOSTS }}'
   when: item.key == "{{ ansible_hostname }}"
   tags: debug
 
@@ -99,7 +101,7 @@
   template:
     src: bridges.j2
     dest: "{{ network_interface_path }}/device-bridges"
-  with_dict: TARGET_HOSTS
+  with_dict: '{{ TARGET_HOSTS }}'
   when: item.key == "{{ ansible_hostname }}"
   tags: debug
 
