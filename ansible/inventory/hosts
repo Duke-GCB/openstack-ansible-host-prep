@@ -14,34 +14,24 @@ bespin-infra3
 
 [logging]
 bespin-log
-=======
-infra_control_plane_host1 ansible_host=10.1.1.10 ansible_port=22
-infra_control_plane_host2 ansible_host=10.1.1.11 ansible_port=22
-infra_control_plane_host3 ansible_host=10.1.1.12 ansible_port=22
-
-[logging]
-infra_control_plane_host4 ansible_host=10.1.1.13 ansible_port=22
-
-[block-storage]
-infra_storage1 ansible_host=10.1.1.14 ansible_port=22
 
 [compute]
 bespin-compute1
-bespin-compute2
-bespin-compute3
-bespin-compute4
-bespin-compute5
-bespin-compute6
-bespin-compute7
-bespin-compute8
-bespin-compute9
-bespin-compute10
-bespin-compute11
-bespin-compute12
-bespin-compute13
-bespin-compute14
-bespin-compute17
-bespin-compute18
+#bespin-compute2
+#bespin-compute3
+#bespin-compute4
+#bespin-compute5
+#bespin-compute6
+#bespin-compute7
+#bespin-compute8
+#bespin-compute9
+#bespin-compute10
+#bespin-compute11
+#bespin-compute12
+#bespin-compute13
+#bespin-compute14
+#bespin-compute17
+#bespin-compute18
 
 [mirror]
 bespin-apt-mirror

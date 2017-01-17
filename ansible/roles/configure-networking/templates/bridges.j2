@@ -7,7 +7,7 @@ iface br-mgmt inet static
   bridge_waitport 0
   bridge_fd 0
   # Bridge port references tagged interface
-  bridge_ports {{ item.value.device1 }}.{{ TARGET_HOST_NETWORKING.host_network.container_vlan_id }}
+  bridge_ports {{ item.value.device2 }}
   address {{ TARGET_HOST_NETWORKING.container_network.subnet }}.{{ TARGET_HOST_NETWORKING.container_network.mgmt_subnet }}.{{ item.value.ip.split('.')[3] }}
   netmask {{ TARGET_HOST_NETWORKING.container_network.netmask }}
   dns-nameservers {{ TARGET_HOST_NETWORKING.host_network.dns_servers }}
@@ -19,7 +19,7 @@ iface br-storage inet static
   bridge_waitport 0
   bridge_fd 0
   # Bridge port reference tagged interface
-  bridge_ports {{ item.value.device1 }}.{{ TARGET_HOST_NETWORKING.host_network.storage_vlan_id }}
+  bridge_ports {{ item.value.device3 }}
   address {{ TARGET_HOST_NETWORKING.container_network.subnet }}.{{ TARGET_HOST_NETWORKING.container_network.storage_subnet }}.{{ item.value.ip.split('.')[3] }}
   netmask {{ TARGET_HOST_NETWORKING.container_network.netmask }}
 
@@ -30,7 +30,7 @@ iface br-vxlan inet static
   bridge_waitport 0
   bridge_fd 0
   # Bridge port references tagged interface
-  bridge_ports {{ item.value.device2 }}.{{ TARGET_HOST_NETWORKING.host_network.tunnel_vlan_id }}
+  bridge_ports {{ item.value.device5 }}
   address {{ TARGET_HOST_NETWORKING.container_network.subnet }}.{{ TARGET_HOST_NETWORKING.container_network.tunnel_subnet }}.{{ item.value.ip.split('.')[3] }}
   netmask {{ TARGET_HOST_NETWORKING.container_network.netmask }}
 
@@ -41,4 +41,4 @@ auto br-vlan
   bridge_waitport 0
   bridge_fd 0
   # Bridge port references untagged interface
-  bridge_ports {{ item.value.device2 }}
+  bridge_ports {{ item.value.device4 }}
