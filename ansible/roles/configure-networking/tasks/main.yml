@@ -38,7 +38,7 @@
     - { regexp: '^(.*)8021q', line: '8021q' }
   tags:
     - modprobe
-    - kernel  
+    - kernel
 
 - name: enable required kernel modules
   modprobe: name="{{ item }}" state=present
@@ -86,6 +86,19 @@
 - name: backup files
   shell: "for i in $(ls {{ network_interface_path }});do mv {{ network_interface_path }}/$i {{ network_interfaces_dir_path }}/backups/${i}.$(date +'%Y%m%d_%H%M%S');done"
 
+
+####################
+# Add custom route #
+####################
+
+-name: add custom policy based route
+  template:
+    src: rt_tables.j2
+    dest: /etc/iproute2/rt_tables
+  with_dict: '{{ TARGET_HOSTS }}'
+  when: item.key == "{{ ansible_hostname }}"
+  tags: debug
+
 ###############################
 # Template interfaces.d files #
 ###############################
@@ -101,6 +114,14 @@
   template:
     src: bridges.j2
     dest: "{{ network_interface_path }}/device-bridges"
+  with_dict: '{{ TARGET_HOSTS }}'
+  when: item.key == "{{ ansible_hostname }}"
+  tags: debug
+
+- name: configure policy routes
+  template:
+    src: policy-routes.j2
+    dest: "{{ network_interface_path }}/policy-routes"
   with_dict: '{{ TARGET_HOSTS }}'
   when: item.key == "{{ ansible_hostname }}"
   tags: debug

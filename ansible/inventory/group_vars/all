@@ -30,10 +30,14 @@ TARGET_HOST_NETWORKING:
     tunnel_subnet: 81
     storage_subnet: 82
     netmask: 255.255.255.0
+  prod_network:
+    subnet: 10.16.72
+    netmask: 255.255.252.0
 
 TARGET_HOSTS:
   bespin-infra1:
     ip: 10.16.132.75
+    prod_ip: 10.16.72.25
     device1: enp8s0
     device2: enp9s0
     device3: enp10s0
@@ -41,6 +45,7 @@ TARGET_HOSTS:
     device5: enp12s0
   bespin-infra2:
     ip: 10.16.132.76
+    prod_ip: 10.16.72.26
     device1: enp8s0
     device2: enp9s0
     device3: enp10s0
@@ -48,6 +53,7 @@ TARGET_HOSTS:
     device5: enp12s0
   bespin-infra3:
     ip: 10.16.132.77
+    prod_ip: 10.16.72.27
     device1: enp8s0
     device2: enp9s0
     device3: enp10s0
@@ -55,6 +61,7 @@ TARGET_HOSTS:
     device5: enp12s0
   bespin-log:
     ip: 10.16.132.78
+    prod_ip: 10.16.72.24
     device1: enp6s0
     device2: enp7s0
     device3: enp8s0

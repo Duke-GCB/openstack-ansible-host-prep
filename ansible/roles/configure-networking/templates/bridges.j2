@@ -36,9 +36,14 @@ iface br-vxlan inet static
 
 # OpenStack Networking VLAN bridge
 auto br-vlan
-  iface br-vlan inet manual
+  iface br-vlan inet static
   bridge_stp off
   bridge_waitport 0
   bridge_fd 0
   # Bridge port references untagged interface
   bridge_ports {{ item.value.device4 }}
+  address {{ item.value.prod_ip }}
+  netmask {{ TARGET_HOST_NETWORKING.prod_network.netmask }}
+
+post-up ip rule add from 10.16.72.20 lookup custom
+post-up ip route add default via 10.16.72.1 dev br-vlan table custom
