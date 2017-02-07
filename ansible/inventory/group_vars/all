@@ -20,16 +20,16 @@ TARGET_HOST_NETWORKING:
     netmask: 255.255.252.0
     network: 10.16.132.0
     dns_servers: 10.11.10.11
-    dns_search: genome.duke.edu
+    dns_search: dhemgt
     container_vlan_id: 60
     tunnel_vlan_id: 61
     storage_vlan_id: 62
   container_network:
-    subnet: 192.168
-    mgmt_subnet: 80
-    tunnel_subnet: 81
-    storage_subnet: 82
-    netmask: 255.255.255.0
+    subnet: 172.29
+    mgmt_subnet: 236
+    tunnel_subnet: 240
+    storage_subnet: 244
+    netmask: 255.255.252.0
   prod_network:
     subnet: 10.16.72
     netmask: 255.255.252.0
@@ -71,18 +71,13 @@ TARGET_HOSTS:
     ip: 10.16.132.80
     device1: eno49
     device2: eno50
-    device3: eno51
-    device4: eno52
-    device5: eno53
   bespin-compute2:
     ip: 10.16.132.81
     device1: eno49
     device2: eno50
-    device3: eno51
-    device4: eno52
-    device5: eno53
   bespin-compute3:
     ip: 10.16.132.82
+    prod_ip: 10.16.72.30
     device1: eno49
     device2: eno50
     device3: eno51
@@ -90,6 +85,7 @@ TARGET_HOSTS:
     device5: eno53
   bespin-compute4:
     ip: 10.16.132.83
+    prod_ip: 10.16.72.31
     device1: eno49
     device2: eno50
     device3: eno51
@@ -97,34 +93,39 @@ TARGET_HOSTS:
     device5: eno53
   bespin-compute5:
     ip: 10.16.132.84
+    prod_ip: 10.16.72.32
     device1: eno49
     device2: eno50
-    device3: eno51
-    device4: eno52
-    device5: eno53
+    device3: eno53
+    device4: eno54
+    device5: eno55
   bespin-compute6:
     ip: 10.16.132.85
+    prod_ip: 10.16.72.33
     device1: eno49
     device2: eno50
-    device3: eno51
-    device4: eno52
-    device5: eno53
+    device3: eno53
+    device4: eno54
+    device5: eno55
   bespin-compute7:
     ip: 10.16.132.86
+    prod_ip: 10.16.72.34
     device1: eno49
     device2: eno50
-    device3: eno51
-    device4: eno52
-    device5: eno53
+    device3: eno53
+    device4: eno54
+    device5: eno55
   bespin-compute8:
     ip: 10.16.132.87
+    prod_ip: 10.16.72.35
     device1: eno49
     device2: eno50
-    device3: eno51
-    device4: eno52
-    device5: eno53
+    device3: eno53
+    device4: eno54
+    device5: eno55
   bespin-compute9:
     ip: 10.16.132.88
+    prod_ip: 10.16.72.36
     device1: eno49
     device2: eno50
     device3: eno51
@@ -132,6 +133,7 @@ TARGET_HOSTS:
     device5: eno53
   bespin-compute10:
     ip: 10.16.132.89
+    prod_ip: 10.16.72.37
     device1: eno49
     device2: eno50
     device3: eno51
@@ -139,6 +141,7 @@ TARGET_HOSTS:
     device5: eno53
   bespin-compute11:
     ip: 10.16.132.90
+    prod_ip: 10.16.72.38
     device1: eno49
     device2: eno50
     device3: eno51
@@ -146,6 +149,7 @@ TARGET_HOSTS:
     device5: eno53
   bespin-compute12:
     ip: 10.16.132.91
+    prod_ip: 10.16.72.39
     device1: eno49
     device2: eno50
     device3: eno51
@@ -153,18 +157,20 @@ TARGET_HOSTS:
     device5: eno53
   bespin-compute13:
     ip: 10.16.132.92
+    prod_ip: 10.16.72.40
     device1: eno49
     device2: eno50
-    device3: eno51
-    device4: eno52
-    device5: eno53
+    device3: eno53
+    device4: eno54
+    device5: eno55
   bespin-compute14:
     ip: 10.16.132.93
+    prod_ip: 10.16.72.41
     device1: eno49
     device2: eno50
-    device3: eno51
-    device4: eno52
-    device5: eno53
+    device3: eno53
+    device4: eno54
+    device5: eno55
   bespin-compute17:
     ip: 10.16.132.96
     device1: enp8s0
