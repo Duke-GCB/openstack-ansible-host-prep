@@ -37,36 +37,20 @@ TARGET_HOST_NETWORKING:
 TARGET_HOSTS:
   bespin-infra1:
     ip: 10.16.132.75
-    prod_ip: 10.16.72.25
     device1: enp8s0
     device2: enp9s0
-    device3: enp10s0
-    device4: enp11s0
-    device5: enp12s0
   bespin-infra2:
     ip: 10.16.132.76
-    prod_ip: 10.16.72.26
     device1: enp8s0
     device2: enp9s0
-    device3: enp10s0
-    device4: enp11s0
-    device5: enp12s0
   bespin-infra3:
     ip: 10.16.132.77
-    prod_ip: 10.16.72.27
     device1: enp8s0
     device2: enp9s0
-    device3: enp10s0
-    device4: enp11s0
-    device5: enp12s0
   bespin-log:
     ip: 10.16.132.78
-    prod_ip: 10.16.72.24
     device1: enp6s0
     device2: enp7s0
-    device3: enp8s0
-    device4: enp9s0
-    device5: enp10s0
   bespin-compute1:
     ip: 10.16.132.80
     device1: eno49
@@ -77,112 +61,60 @@ TARGET_HOSTS:
     device2: eno50
   bespin-compute3:
     ip: 10.16.132.82
-    prod_ip: 10.16.72.30
     device1: eno49
     device2: eno50
-    device3: eno51
-    device4: eno52
-    device5: eno53
   bespin-compute4:
     ip: 10.16.132.83
-    prod_ip: 10.16.72.31
     device1: eno49
     device2: eno50
-    device3: eno51
-    device4: eno52
-    device5: eno53
   bespin-compute5:
     ip: 10.16.132.84
-    prod_ip: 10.16.72.32
     device1: eno49
     device2: eno50
-    device3: eno53
-    device4: eno54
-    device5: eno55
   bespin-compute6:
     ip: 10.16.132.85
-    prod_ip: 10.16.72.33
     device1: eno49
     device2: eno50
-    device3: eno53
-    device4: eno54
-    device5: eno55
   bespin-compute7:
     ip: 10.16.132.86
-    prod_ip: 10.16.72.34
     device1: eno49
     device2: eno50
-    device3: eno53
-    device4: eno54
-    device5: eno55
   bespin-compute8:
     ip: 10.16.132.87
-    prod_ip: 10.16.72.35
     device1: eno49
     device2: eno50
-    device3: eno53
-    device4: eno54
-    device5: eno55
   bespin-compute9:
     ip: 10.16.132.88
-    prod_ip: 10.16.72.36
     device1: eno49
     device2: eno50
-    device3: eno51
-    device4: eno52
-    device5: eno53
   bespin-compute10:
     ip: 10.16.132.89
-    prod_ip: 10.16.72.37
     device1: eno49
     device2: eno50
-    device3: eno51
-    device4: eno52
-    device5: eno53
   bespin-compute11:
     ip: 10.16.132.90
-    prod_ip: 10.16.72.38
     device1: eno49
     device2: eno50
-    device3: eno51
-    device4: eno52
-    device5: eno53
   bespin-compute12:
     ip: 10.16.132.91
-    prod_ip: 10.16.72.39
     device1: eno49
     device2: eno50
-    device3: eno51
-    device4: eno52
-    device5: eno53
   bespin-compute13:
     ip: 10.16.132.92
-    prod_ip: 10.16.72.40
     device1: eno49
     device2: eno50
-    device3: eno53
-    device4: eno54
-    device5: eno55
   bespin-compute14:
     ip: 10.16.132.93
-    prod_ip: 10.16.72.41
     device1: eno49
     device2: eno50
-    device3: eno53
-    device4: eno54
-    device5: eno55
   bespin-compute17:
     ip: 10.16.132.96
-    device1: enp8s0
-    device2: enp9s0
-    device3: enp10s0
-    device4: enp11s0
+    device1: enp6s0
+    device2: enp7s0
   bespin-compute18:
     ip: 10.16.132.97
-    device1: enp8s0
-    device2: enp9s0
-    device3: enp10s0
-    device4: enp11s0
+    device1: enp6s0
+    device2: enp7s0
 
 CINDER_PHYSICAL_VOLUME:
   physical_volume: sdb1
