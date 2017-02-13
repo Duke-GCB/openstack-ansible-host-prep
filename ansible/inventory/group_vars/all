@@ -109,12 +109,12 @@ TARGET_HOSTS:
     device2: eno50
   bespin-compute17:
     ip: 10.16.132.96
-    device1: enp6s0
-    device2: enp7s0
+    device1: eno49
+    device2: eno50
   bespin-compute18:
     ip: 10.16.132.97
-    device1: enp6s0
-    device2: enp7s0
+    device1: eno49
+    device2: eno50
 
 CINDER_PHYSICAL_VOLUME:
   physical_volume: sdb1

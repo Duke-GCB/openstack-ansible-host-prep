@@ -1,0 +1,34 @@
+---
+- name: Get BigFix Deb
+  get_url:
+    url: http://software.bigfix.com/download/bes/95/BESAgent-9.5.4.38-ubuntu10.amd64.deb
+    dest: /tmp/BESAgent-9.5.4.38-ubuntu10.amd64.deb
+    mode: 0400
+
+- name: Install BigFix client
+  apt:
+    deb: /tmp/BESAgent-9.5.4.38-ubuntu10.amd64.deb
+
+- name: Create directory for BESClient config
+  file:
+    path: /etc/opt/BESClient
+    state: directory
+    mode: 0755
+
+- name: Copy actionsite.afxm file
+  copy:
+    src: actionsite.afxm
+    dest: /etc/opt/BESClient/actionsite.afxm
+    mode: 0600
+
+- name: Change owner of server in BigFix
+  copy:
+    src: IEM.BES.Owner.txt
+    dest: /var/IEM.BES.Owner.txt
+    mode: 0644
+
+- name: Start besclient service
+  service:
+    name: besclient
+    state: started
+    enabled: yes
