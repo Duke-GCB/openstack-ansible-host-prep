@@ -73,6 +73,19 @@
   tags:
     - networking
 
+###########################################################
+# Create a custom routing tables for polciy based routing #
+###########################################################
+- name: create custom route
+  copy:
+    src: rt_tables
+    dest: /etc/iproute2/rt_tables
+    owner: root
+    group: root
+    mode: 644
+  tags:
+    - networking
+
 ####################
 # Remove old files #
 ####################

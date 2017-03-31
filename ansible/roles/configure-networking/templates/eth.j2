@@ -7,6 +7,7 @@ iface {{ item.value.device1 }} inet static
   gateway {{ TARGET_HOST_NETWORKING.host_network.gateway }}
   netmask {{ TARGET_HOST_NETWORKING.host_network.netmask }}
   network {{ TARGET_HOST_NETWORKING.host_network.network }}
+  mtu 9000
   dns-nameservers {{ TARGET_HOST_NETWORKING.host_network.dns_servers }}
   dns-search {{ TARGET_HOST_NETWORKING.host_network.dns_search }}
 
@@ -17,6 +18,7 @@ iface {{ item.value.device1 }}.{{ TARGET_HOST_NETWORKING.host_network.container_
 auto {{ item.value.device1 }}.{{ TARGET_HOST_NETWORKING.host_network.storage_vlan_id }}
 iface {{ item.value.device1 }}.{{ TARGET_HOST_NETWORKING.host_network.storage_vlan_id }} inet manual
   vlan-raw-device {{ item.value.device1 }}
+  mtu 9000
 
 auto {{ item.value.device2 }}
 iface {{ item.value.device2 }} inet manual

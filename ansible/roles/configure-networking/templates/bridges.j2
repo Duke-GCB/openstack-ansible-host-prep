@@ -22,6 +22,7 @@ iface br-storage inet static
   bridge_ports {{ item.value.device1 }}.{{ TARGET_HOST_NETWORKING.host_network.storage_vlan_id }}
   address {{ TARGET_HOST_NETWORKING.container_network.subnet }}.{{ TARGET_HOST_NETWORKING.container_network.storage_subnet }}.{{ item.value.ip.split('.')[3] }}
   netmask {{ TARGET_HOST_NETWORKING.container_network.netmask }}
+  mtu 9000
 
 # OpenStack Networking VXLAN (tunnel/overlay) bridge
 auto br-vxlan
@@ -33,6 +34,7 @@ iface br-vxlan inet static
   bridge_ports {{ item.value.device2 }}.{{ TARGET_HOST_NETWORKING.host_network.tunnel_vlan_id }}
   address {{ TARGET_HOST_NETWORKING.container_network.subnet }}.{{ TARGET_HOST_NETWORKING.container_network.tunnel_subnet }}.{{ item.value.ip.split('.')[3] }}
   netmask {{ TARGET_HOST_NETWORKING.container_network.netmask }}
+  mtu 9000
 
 # OpenStack Networking VLAN bridge
 auto br-vlan
@@ -42,3 +44,7 @@ auto br-vlan
   bridge_fd 0
   # Bridge port references untagged interface
   bridge_ports {{ item.value.device2 }}
+  address {{ item.value.prod_ip }}
+  netmask {{ TARGET_HOST_NETWORKING.prod_network.netmask }}
+  post-up ip rule add from {{ TARGET_HOST_NETWORKING.prod_network.subnet }}.0/22 table custom
+  post-up ip route add default via {{ TARGET_HOST_NETWORKING.prod_network.subnet }}.1 dev br-vlan table custom
